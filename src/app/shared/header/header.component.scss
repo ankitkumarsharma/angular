@@ -1,0 +1,14 @@
+@import '../../scss/variable';
+.navbar{
+  background-color: $primary_color;
+  a{
+    color: $white_color;
+  }
+  .navbar-collapse{
+    .navbar-nav{
+      a{
+        color: $white_color;
+      }
+    }
+  }
+}
