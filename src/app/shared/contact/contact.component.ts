@@ -6,11 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  @Input() data:any;
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.data)
   }
 
 }
