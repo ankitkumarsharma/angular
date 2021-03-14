@@ -1,0 +1,44 @@
+<button [routerLink]="['/components']"  class="primary-btn"><< Back</button>
+<div class="space-20"></div>
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="ak-title">Static Tabs</h2>
+        <div class="tab-block">
+            <ul class="nav nav-tabs">
+                <li (click)="tabSelect(1)" class="nav-item"><a [ngClass]="{'active':tabItem == 1}" class="nav-link active" data-toggle="tab">Home</a></li>
+                <li (click)="tabSelect(2)" class="nav-item"><a [ngClass]="{'active':tabItem == 2}" class="nav-link" data-toggle="tab">Menu 1</a></li>
+                <li (click)="tabSelect(3)" class="nav-item"><a [ngClass]="{'active':tabItem == 3}" class="nav-link" data-toggle="tab">Menu 2</a></li>
+              </ul>
+              <div class="tab-content">
+                <div [ngClass]="{'active show':tabItem == 1}" *ngIf="tabItem == 1" class="tab-pane fade show active">
+                  <h3>HOME</h3>
+                  <p>Some content.</p>
+                </div>
+                <div [ngClass]="{'active show':tabItem == 2}" *ngIf="tabItem == 2" class="tab-pane fade">
+                  <h3>Menu 1</h3>
+                  <p>Some content in menu 1.</p>
+                </div>
+                <div [ngClass]="{'active show':tabItem == 3}" *ngIf="tabItem == 3" class="tab-pane fade">
+                  <h3>Menu 2</h3>
+                  <p>Some content in menu 2.</p>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2 class="ak-title">Dynamic Tabs</h2>
+        <div class="tab-block">
+            <ul class="nav nav-tabs">
+            <li *ngFor="let item of dynamicTab;let i=index;" (click)="dynamicTabSelect(i+1)" class="nav-item"><a [ngClass]="{'active':dynamicTabItem == i+1}" class="nav-link" data-toggle="tab">{{item.label}}</a></li>
+          </ul>
+          <div class="tab-content">
+            <div *ngFor="let item of dynamicTab;let i=index;">
+              <div [ngClass]="{'active show':dynamicTabItem == i+1}" *ngIf="dynamicTabItem == i+1" class="tab-pane fade">
+                <h3>{{item.content}}</h3>
+                <p>{{item.content}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
