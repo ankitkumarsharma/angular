@@ -2,7 +2,7 @@ export const COMPONENT_INTERACTION_TYPE = [
   {
     name: 'Components',
     info: 'Building block of Angular applications.',
-    link: '/',
+    link: '/components',
     status: true
   },
   {

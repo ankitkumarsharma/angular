@@ -1,0 +1,19 @@
+
+.tab-block{
+    cursor: pointer;
+    min-height: 118px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 4px;
+    .nav-tabs{
+        .nav-item{
+            .nav-link{
+                cursor: pointer;
+                &.active{
+                    cursor: default;
+                }
+            }
+        }
+    }
+}

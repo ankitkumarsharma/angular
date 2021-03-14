@@ -1,15 +1,12 @@
 <nav class="navbar navbar-expand-md navbar-light">
-  <a routerLink="/" class="navbar-brand">Angular</a>
+  <a (click)="onRouteHome()" class="navbar-brand">Angular</a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav">
-          <a routerLink="/" class="nav-item nav-link active">Home</a>
-          <a routerLink="/input-based" class="nav-item nav-link">@Input</a>
-          <a routerLink="/output-based" class="nav-item nav-link">@Output</a>
-          <a routerLink="/" class="nav-item nav-link">Other</a>
+          <a (click)="onRouteHome()" class="nav-item nav-link active">Home</a>
       </div>
       <div class="navbar-nav ml-auto">
           <a routerLink="/" class="nav-item nav-link">Login</a>
