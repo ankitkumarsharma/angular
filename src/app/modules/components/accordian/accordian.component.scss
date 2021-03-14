@@ -1,0 +1,20 @@
+  .accordian-block{
+    .acc-item{
+        margin: 10px 0;
+        .acc-item-header{
+            background: #ccc;
+            padding: 5px;
+            cursor: pointer;
+            &.active{
+                cursor: default;
+              }
+        }
+        .acc-item-content{
+            padding: 5px;
+            background: #b1e6b1;
+          }
+        span{
+            float: right;
+          }
+      }
+  }

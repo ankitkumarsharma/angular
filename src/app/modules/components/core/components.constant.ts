@@ -1,4 +1,5 @@
-export const COMPONENT_DATA_TYPE = [
+import * as COMTypes from "./components.types";
+export const COMPONENT_DATA_TYPE: COMTypes.ComponentDataTypes[] = [
   {
     name: 'Tabs',
     info: 'Building Tabs in Angular',
@@ -8,8 +9,8 @@ export const COMPONENT_DATA_TYPE = [
   {
     name: 'Accordian',
     info: 'Building accordian in Angular',
-    link: '/',
-    status: false
+    link: 'accordian',
+    status: true
   },
   {
     name: 'Image Slider',
@@ -24,7 +25,7 @@ export const COMPONENT_DATA_TYPE = [
     status: false
   },
 ];
-export const DYNAMIC_TAB_DATA = [
+export const DYNAMIC_TAB_DATA: COMTypes.DynamicTabTypes[] = [
   {
     label:'Tab 1',
     content: 'content 1'
@@ -38,4 +39,11 @@ export const DYNAMIC_TAB_DATA = [
     content: 'content 3'
   }
 ];
-
+export const ACCORDIAN_DATA: COMTypes.AccordianDataTypes[] = [
+  {header:'title for header',content:'content for listing',active: true},
+  {header:'title for header',content:'content for listing',active: false},
+  {header:'title for header',content:'content for listing',active: false},
+  {header:'title for header',content:'content for listing',active: false},
+  {header:'title for header',content:'content for listing',active: false},
+  {header:'title for header',content:'content for listing',active: false},
+];
