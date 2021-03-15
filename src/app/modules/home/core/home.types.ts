@@ -4,3 +4,10 @@ export interface ComponentInteractionTypes {
   link: string,
   status: boolean
 }
+export interface HomeTypes {
+  homeTab: HomeTabsTypes;
+}
+export interface HomeTabsTypes{
+  title: string,
+  desc: string,
+}
