@@ -1,3 +1,12 @@
+export interface TabDataTypes {
+  tabs: TabsTypes;
+}
+export interface TabsTypes{
+  name: string,
+  info: string,
+  link?: string,
+  status?: boolean
+}
 export interface ComponentDataTypes {
   name: string,
   info: string,

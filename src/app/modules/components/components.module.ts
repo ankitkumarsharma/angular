@@ -1,3 +1,6 @@
+import { reducers, metaReducers } from './core/state/reducers/index';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +14,9 @@ import { AccordianComponent } from './accordian/accordian.component';
   declarations: [ComponentsComponent, TabsComponent, AccordianComponent],
   imports: [
     CommonModule,
-    ComponentsRoutingModule
+    ComponentsRoutingModule,
+    StoreModule.forFeature("Components",reducers,{metaReducers}),
+    EffectsModule.forFeature([])
   ]
 })
 export class ComponentsModule { }

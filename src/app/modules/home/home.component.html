@@ -1,6 +1,6 @@
 <div class="row">
   <div title="{{item.status ? 'Done':'Pending'}}" *ngFor="let item of componentType" class="col-3">
-    <div routerLink="{{item.link}}" class="card" [ngClass]="{'disabled': !item.status }">
+    <div routerLink="{{item.link}}" (click)="onTab(item)" class="card" [ngClass]="{'disabled': !item.status }">
       <div class="card-body">
         <h2 class="ak-title">{{item.name}}</h2>
         <h3 class="ak-sub-title">{{item.info}}</h3>
