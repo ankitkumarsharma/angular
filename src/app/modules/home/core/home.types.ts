@@ -8,6 +8,8 @@ export interface HomeTypes {
   homeTab: HomeTabsTypes;
 }
 export interface HomeTabsTypes{
-  title: string,
-  desc: string,
+  name: string,
+  info: string,
+  link?: string,
+  status?: boolean
 }

@@ -4,8 +4,8 @@ import * as homeAction from '../actions/home.actions';
 export const homeDataKey = "homeData";
 export const initialStateHome: HomeTypes = {
     homeTab:{
-        title:"",
-        desc:""
+        name:"",
+        info:""
     }
 }
 const homeReducer = createReducer(

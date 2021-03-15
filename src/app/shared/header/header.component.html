@@ -7,6 +7,8 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav">
           <a (click)="onRouteHome()" class="nav-item nav-link active">Home</a>
+          <p class="nav-item nav-link active">{{tabData?.name}}</p>
+          <p class="nav-item nav-link active">{{tabSubData?.name}} {{tabSubData?.info}}</p>
       </div>
       <div class="navbar-nav ml-auto">
           <a routerLink="/" class="nav-item nav-link">Login</a>
