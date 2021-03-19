@@ -1,7 +1,7 @@
 <button [routerLink]="['/']" (click)="onBack()" class="primary-btn"><< Back</button>
 <div class="space-20"></div>
 <div class="row">
-    <div title="{{item.status ? 'Done':'Pending'}}" *ngFor="let item of componentType" class="col-3">
+    <div title="{{item.status ? 'Done':'Pending'}}" *ngFor="let item of componentType" class="col-md-3">
       <div routerLink="{{item.link}}" (click)="onTab(item)" class="card" [ngClass]="{'disabled': !item.status }">
         <div class="card-body">
           <h2 class="ak-title">{{item.name}}</h2>
