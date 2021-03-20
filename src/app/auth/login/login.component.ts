@@ -1,8 +1,9 @@
-import { LoginTypes } from './../core/auth.types';
+import { LoginTypes, UserTypes } from './../core/auth.types';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { saveLogin } from '../core/actions/auth.actions';
+import { saveIsAuth } from '../core/actions/auth.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,17 +12,41 @@ import { saveLogin } from '../core/actions/auth.actions';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  constructor(private _fb: FormBuilder, private _store: Store) { }
+  userData!: UserTypes[];
+  isAuth: boolean = false;
+  currentUser:any;
+  constructor(private _fb: FormBuilder, private _store: Store<any>, private _route: Router) { }
 
   ngOnInit(): void {
+    this._store.dispatch(saveIsAuth({payload: false}));
     this.loginForm = this._fb.group({
       username: ['',Validators.required],
       password: ['', Validators.required],
+    });
+    this._store.select("auth","user").subscribe((data:any)=>{
+      if(data){
+        this.userData = data;
+      }
     })
   }
   onSubmit(value: LoginTypes){
     if(this.loginForm.valid){
-      this._store.dispatch(saveLogin({payload: value}));
+      if(this.userData){
+        this.isAuth = false;
+        this.currentUser = null;
+        this.userData.find((x)=>{
+          if(x.username == value.username && x.password == value.password){
+            this.currentUser = x;
+          }
+        });
+        if(this.currentUser) {
+          this.isAuth = false;
+          this._store.dispatch(saveIsAuth({payload: true}));
+          this._route.navigate(['/home']);
+        } else {
+          this.isAuth = true;
+        }
+      }
     } else {
       this.loginForm.markAllAsTouched();
     }

@@ -1,15 +1,16 @@
 export interface AuthType {
-  login: LoginTypes;
-  signup: SignupTypes;
+  login: LoginTypes | null;
+  user: UserTypes[];
+  isAuth: boolean;
+  errorMessage: string | null;
 }
 export interface LoginTypes {
   username?: string,
   password?: string
 }
-export interface SignupTypes {
+export interface UserTypes {
   name?: string,
   username?: string,
   emailId?: string,
   password?: string,
-  ConfirmPassword?: string,
 }

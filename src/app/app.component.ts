@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular';
   loginFlag: boolean = false;
+  constructor(private _store: Store<any>){
+    this._store.select("auth","isAuth").subscribe((data)=>{
+      this.loginFlag = data;
+    })
+  }
 }

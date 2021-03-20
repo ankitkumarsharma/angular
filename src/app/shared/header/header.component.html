@@ -11,7 +11,7 @@
           <p class="nav-item nav-link active">{{tabSubData?.name}} {{tabSubData?.info}}</p>
       </div>
       <div class="navbar-nav ml-auto">
-          <a routerLink="/" class="nav-item nav-link">Login</a>
+          <a (click)="onLogout()" class="nav-item nav-link">Logout</a>
       </div>
   </div>
 </nav>
