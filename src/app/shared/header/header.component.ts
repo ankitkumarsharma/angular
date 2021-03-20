@@ -11,6 +11,7 @@ import { saveIsAuth } from 'src/app/auth/core/actions/auth.actions';
 export class HeaderComponent implements OnInit, AfterContentChecked {
   tabData:any;
   tabSubData:any;
+  currentUser:any;
   constructor(private _route: Router, private _store: Store<any>) {
     
    }
@@ -24,6 +25,9 @@ export class HeaderComponent implements OnInit, AfterContentChecked {
     });
     this._store.select(this.tabData['name'],"tabsPanel","tabs").subscribe((data)=>{
       this.tabSubData = data;
+    });
+    this._store.select("auth","currentUser").subscribe((data)=>{
+      this.currentUser = data;
     });
   }
   onRouteHome(){

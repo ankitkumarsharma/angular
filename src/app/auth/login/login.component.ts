@@ -1,3 +1,4 @@
+import { updateCurrentUser } from './../core/actions/auth.actions';
 import { LoginTypes, UserTypes } from './../core/auth.types';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   userData!: UserTypes[];
   isAuth: boolean = false;
   currentUser:any;
+  userError!:string;
   constructor(private _fb: FormBuilder, private _store: Store<any>, private _route: Router) { }
 
   ngOnInit(): void {
@@ -42,9 +44,12 @@ export class LoginComponent implements OnInit {
         if(this.currentUser) {
           this.isAuth = false;
           this._store.dispatch(saveIsAuth({payload: true}));
+          this._store.dispatch(updateCurrentUser({payload: this.currentUser}));
           this._route.navigate(['/home']);
         } else {
           this.isAuth = true;
+          this.userError = "User name or password are wrong!!!";
+          // this.userError = "User not found, please create account on click signup!!!";
         }
       }
     } else {

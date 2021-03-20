@@ -1,8 +1,7 @@
 export interface AuthType {
-  login: LoginTypes | null;
   user: UserTypes[];
   isAuth: boolean;
-  errorMessage: string | null;
+  currentUser: UserTypes | null;
 }
 export interface LoginTypes {
   username?: string,

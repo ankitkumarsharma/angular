@@ -3,10 +3,9 @@ import { Action, createReducer, on } from '@ngrx/store';
 import * as authAction from '../actions/auth.actions';
 export const authDataKey = "authData";
 export const initialStateAuth: AuthType = {
-    login: null,
     user: [],
     isAuth: false,
-    errorMessage: null
+    currentUser: null
 }
 const authReducer = createReducer(
     initialStateAuth,
@@ -26,6 +25,12 @@ const authReducer = createReducer(
         return {
             ...state,
             isAuth: payload
+        }
+    }),
+    on(authAction.updateCurrentUser, (state:any,{payload}) =>{
+        return {
+            ...state,
+            currentUser: payload
         }
     }),
 );

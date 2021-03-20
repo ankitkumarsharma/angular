@@ -12,7 +12,9 @@ import { UserTypes } from '../core/auth.types';
 })
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
-  constructor(private _fb: FormBuilder, private _store: Store, private _route: Router) { }
+  userData!:UserTypes[];
+  userExistFlag:boolean = false;
+  constructor(private _fb: FormBuilder, private _store: Store<any>, private _route: Router) { }
 
   ngOnInit(): void {
     this.signupForm = this._fb.group({
@@ -20,14 +22,29 @@ export class SignupComponent implements OnInit {
       username: ['', Validators.required],
       emailId: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
+    });
+    this._store.select("auth","user").subscribe((data:any)=>{
+      if(data){
+        this.userData = data;
+      }
     })
   }
   onSubmit(value:any) {
     if(this.signupForm.valid){
-      this._store.dispatch(saveUser({payload: value}));
-      this._route.navigate(['/auth/login']);
+      if(!this.userExistFlag){
+        this._store.dispatch(saveUser({payload: value}));
+        this._route.navigate(['/auth/login']);
+      }
     } else {
       this.signupForm.markAllAsTouched();
     }
+  }
+  onBlur(){
+    this.userExistFlag = false;
+    this.userData.find((x)=>{
+      if(x.username == this.signupForm.get('username')?.value){
+        this.userExistFlag = true;
+      }
+    });
   }
 }

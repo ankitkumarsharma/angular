@@ -13,3 +13,7 @@ export const saveIsAuth = createAction(
     '[Auth] save isauth data',
     props<{payload: boolean}>()
 );
+export const updateCurrentUser = createAction(
+    '[Auth] update current user data',
+    props<{payload: authType.UserTypes}>()
+);

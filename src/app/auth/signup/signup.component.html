@@ -12,9 +12,10 @@
                             <input formControlName="name" type="text" class="form-control" placeholder="Enter your full name">
                             <app-error [error]="signupForm.get('name')!.invalid && (signupForm.get('name')!.touched || signupForm.get('name')!.dirty) && signupForm.get('name')!.hasError('required')" [displayError]="'This is required field'"></app-error>
 
-                            <input formControlName="username" type="text" class="form-control" placeholder="Enter your username">
+                            <input formControlName="username" (blur)="onBlur()" type="text" class="form-control" placeholder="Enter your username">
                             <app-error [error]="signupForm.get('username')!.invalid && (signupForm.get('username')!.touched || signupForm.get('username')!.dirty) && signupForm.get('username')!.hasError('required')" [displayError]="'This is required field'"></app-error>
-
+                            <p *ngIf="userExistFlag" class="error">user name already exist, please choose differnet</p>
+                            
                             <input formControlName="emailId" type="text" class="form-control" placeholder="Enter your email id">
                             <app-error [error]="signupForm.get('emailId')!.invalid && (signupForm.get('emailId')!.touched || signupForm.get('emailId')!.dirty) && signupForm.get('emailId')!.hasError('required')" [displayError]="'This is required field'"></app-error>
                             <app-error [error]="signupForm.get('emailId')!.invalid && (signupForm.get('emailId')!.touched || signupForm.get('emailId')!.dirty) && signupForm.get('emailId')!.hasError('email')" [displayError]="'Please use valid email format'"></app-error>
