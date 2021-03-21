@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit, AfterContentChecked {
     });
   }
   onRouteHome(){
-    this._route.navigate(['/'])
+    this._route.navigate(['/home'])
   }
   onRouteTab(){
     this._route.navigate([this.tabData['link']]);

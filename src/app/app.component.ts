@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 })
 export class AppComponent {
   title = 'Angular';
-  loginFlag: boolean = false;
+  loginFlag!: boolean;
   constructor(private _store: Store<any>){
     this._store.select("auth","isAuth").subscribe((data)=>{
       this.loginFlag = data;
