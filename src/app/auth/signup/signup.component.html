@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="login-block">
+                <div class="login">
+                    <button type="button" routerLink="/auth" class="secondary-btn">Back for Login</button>
+                    <div class="space-20"></div>
+                    <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+                        <h3 class="ak-title">Signup for Learning</h3>
+                        <div class="space-20"></div>
+                        <div class="form-group">
+                            <input formControlName="name" type="text" class="form-control" placeholder="Enter your full name">
+                            <app-error [error]="signupForm.get('name')!.invalid && (signupForm.get('name')!.touched || signupForm.get('name')!.dirty) && signupForm.get('name')!.hasError('required')" [displayError]="'This is required field'"></app-error>
+
+                            <input formControlName="username" (blur)="onBlur()" type="text" class="form-control" placeholder="Enter your username">
+                            <app-error [error]="signupForm.get('username')!.invalid && (signupForm.get('username')!.touched || signupForm.get('username')!.dirty) && signupForm.get('username')!.hasError('required')" [displayError]="'This is required field'"></app-error>
+                            <p *ngIf="userExistFlag" class="error">user name already exist, please choose differnet</p>
+                            
+                            <input formControlName="emailId" type="text" class="form-control" placeholder="Enter your email id">
+                            <app-error [error]="signupForm.get('emailId')!.invalid && (signupForm.get('emailId')!.touched || signupForm.get('emailId')!.dirty) && signupForm.get('emailId')!.hasError('required')" [displayError]="'This is required field'"></app-error>
+                            <app-error [error]="signupForm.get('emailId')!.invalid && (signupForm.get('emailId')!.touched || signupForm.get('emailId')!.dirty) && signupForm.get('emailId')!.hasError('email')" [displayError]="'Please use valid email format'"></app-error>
+
+                            <input formControlName="password" type="password" class="form-control" placeholder="Enter your password">
+                            <app-error [error]="signupForm.get('password')!.invalid && (signupForm.get('password')!.touched || signupForm.get('password')!.dirty) && signupForm.get('password')!.hasError('required')" [displayError]="'This is required field'"></app-error>
+
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-md-12">
+                                <button type="submit" class="primary-btn">Signup</button>
+                            </div> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

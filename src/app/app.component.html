@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <app-header></app-header>
-      <app-contact></app-contact>
+      <app-header *ngIf="loginFlag"></app-header>
+      <app-contact *ngIf="loginFlag"></app-contact>
       <router-outlet></router-outlet>
-      <app-footer></app-footer>
+      <app-footer *ngIf="loginFlag"></app-footer>
     </div>
   </div>
 </div>

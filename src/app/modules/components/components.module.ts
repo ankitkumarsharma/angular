@@ -8,6 +8,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
 import { ComponentsComponent } from './components.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { AccordianComponent } from './accordian/accordian.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AccordianComponent } from './accordian/accordian.component';
     CommonModule,
     ComponentsRoutingModule,
     StoreModule.forFeature("Components",reducers,{metaReducers}),
-    EffectsModule.forFeature([])
+    EffectsModule.forFeature([]),
+    SharedModule
   ]
 })
 export class ComponentsModule { }

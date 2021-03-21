@@ -1,17 +1,22 @@
+import { AuthType } from './../../../auth/core/auth.types';
 import { ActionReducer, ActionReducerMap, INIT, MetaReducer } from '@ngrx/store';
 import { HomeTypes } from './../../../modules/home/core/home.types';
 import * as homeReducers from '../../../modules/home/core/reducers/home.reducers';
+import * as authReducers from '../../../auth/core/reducers/auth.reducers';
 import { localStorageSync } from 'ngrx-store-localstorage';
 export interface AppType {
-    home?: HomeTypes
+    home?: HomeTypes,
+    auth?: AuthType
 }
 export const reducers: ActionReducerMap<AppType> = {
     home: homeReducers.reducer,
+    auth: authReducers.reducer
 }
 export function localStorageSyncReducer(redcer: ActionReducer<AppType>): ActionReducer<AppType>{
     return localStorageSync({
         keys: [
             homeReducers.homeDataKey,
+            authReducers.authDataKey
         ],
         rehydrate: true,
         storage: sessionStorage,

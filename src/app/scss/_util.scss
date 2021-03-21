@@ -26,3 +26,9 @@
 a{
   cursor: pointer;
 }
+.error{
+  color: $error_color;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: -10px;
+}
