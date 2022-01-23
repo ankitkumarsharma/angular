@@ -15,8 +15,8 @@ export const COMPONENT_DATA_TYPE: COMTypes.ComponentDataTypes[] = [
   {
     name: 'Image Slider',
     info: 'Building image Slider in Angular',
-    link: '/',
-    status: false
+    link: 'image-slider',
+    status: true
   },
   {
     name: 'Compare Items',

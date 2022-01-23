@@ -9,10 +9,11 @@ import { ComponentsComponent } from './components.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { AccordianComponent } from './accordian/accordian.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
 
 
 @NgModule({
-  declarations: [ComponentsComponent, TabsComponent, AccordianComponent],
+  declarations: [ComponentsComponent, TabsComponent, AccordianComponent, ImageSliderComponent],
   imports: [
     CommonModule,
     ComponentsRoutingModule,
